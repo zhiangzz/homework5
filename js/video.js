@@ -49,7 +49,13 @@ speedUp.addEventListener('click',()=>{
 })
 
 skipAhead.addEventListener('click',()=>{
-    video.currentTime>=video.duration ? video.currentTime = 0:video.currentTime+=15;
+    if (video.currentTime+15>video.duration){
+        video.currentTime=0;
+        video.pause();
+    }
+    else{
+    video.currentTime+=15;
+    }
 })
 
 mute.addEventListener('click',(e)=>{
