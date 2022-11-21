@@ -8,10 +8,13 @@ const mute = document.querySelector('#mute');
 const video = document.querySelector('#videoplayer');
 const slider = document.querySelector('#slider');
 const volume = document.querySelector('#volume');
-window.addEventListener('load',()=>{
-    video.autoplay='false';
-    video.loop ='false';
-})
+video.load();
+video.autoplay=false;
+video.loop=false;
+// video.addEventListener('load',(e)=>{
+//     e.target.autoplay=false;
+//     e.target.loop =false;
+// })
 
 playVideo.addEventListener('click',()=>{
     video.play();
@@ -46,7 +49,7 @@ speedUp.addEventListener('click',()=>{
 })
 
 skipAhead.addEventListener('click',()=>{
-    video.currentTime>video.duration ? 0:video.currentTime+=15;
+    video.currentTime>=video.duration ? video.currentTime = 0:video.currentTime+=15;
 })
 
 mute.addEventListener('click',(e)=>{
